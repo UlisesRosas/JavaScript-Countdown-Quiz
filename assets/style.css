@@ -1,3 +1,46 @@
 * {
     box-sizing: border-box;
 }
+/* style the header make children flexbox */
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+header section p {
+    font-size: 18px;
+}
+
+/* style main section */ 
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+
+.prompt-style {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.prompt-style p {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    line-height: .5;
+    font-size: 18px;
+}
+
+.btn {
+    margin-top: 25px;
+    color: white;
+    background-color: rgb(120, 31, 236);
+    font-size: 20px;
+}
+
+.high-score {
+    color: violet;
+}
