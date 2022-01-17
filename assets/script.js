@@ -54,14 +54,22 @@ function getQuestion() {
     // update page with current question 
     var titleEl = document.getElementById("question-title");
     titleEl.textContent = currentQuestion.title;
-    // clear out old questions and choices
-    
-};
+    // display choices in form of buttons
+    for(var i = 0; i < currentQuestion.choices.length; i++ ){
+      var promptDiv = document.querySelector(".prompt-style");
+      var answerBtnEl =  document.createElement("button");
+      answerBtnEl.className = "btn";
+      answerBtnEl.textContent = currentQuestion.choices[i];
+      promptDiv.appendChild(answerBtnEl);
+    }
+    // clear out old questions and choices   
 
+};
+getQuestion();
 
 function questionClick() {
 // check if the user guessed wrong
-// dispolay new time on page if user guesses wrong
+// display new time on page if user guesses wrong
 // move to the next question if user guesses at all
 // logic to check if there are any questions left
 };
