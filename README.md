@@ -1,5 +1,5 @@
 # JavaScript-Countdown-Quiz
-A quiz on JavaScript, 
+A quiz on JavaScript 
 ## Purpose
 - Designed to practice coding interview questions in a timed environment
 ## Built With
