@@ -8,33 +8,32 @@ var promptDiv = document.querySelector("#question-choices");
 var questions = [
   {
       title: "what is the color of the sky?",
-      choices: ["yellow", "green","blue", "orange"],
+      choices: ["1. yellow", "2.green","3.blue", "4.orange"],
       answer: "blue"
   },
   {
       title: "which one is not food?",
-      choices: ["dog", "apple", "home work", "house"],
+      choices: ["1.dog", "2.apple", "3.home work", "4.house"],
       answer: "aplle"
   }, 
 
   { 
       title: "Which one is an animal?",
-      choices: ["cat", "tree", "stick", "couch"],
+      choices: ["1.cat", "2.tree", "3.stick", "4.couch"],
       answer: "cat"
   },
 
   { 
     title: "Which one is a sport?",
-    choices: ["cat", "tree", "boxing", "couch"],
+    choices: ["1.cat", "2.tree", "3.boxing", "4.couch"],
     answer: "boxing"
 }
 ];
 var currentQuestionIndex = 0;
-var timeLeft = 60;
 var timerEl = document.getElementById("timer")
 questionZoneEl.style.display = "none";
 endQuizZoneEl.style.display = "none";
-// var timeLeft = questions.length * 15;
+var timeLeft = questions.length * 15;
 
 function startQuiz(){
   startTimer();
@@ -53,9 +52,9 @@ function startTimer(){
     timeLeft --;
   } else {
       timerEl.textContent = 'Out of time';
-      clearInterval(timeInterval);  
+        
       displayMessage();
-      endQuiz();
+    
     }
     
 }, 1000);
@@ -68,15 +67,20 @@ function getQuestion() {
     // update page with current question 
     var titleEl = document.getElementById("question-title");
     titleEl.textContent = currentQuestion.title;
-    // display choices in form of buttons
+    // display choices in object array
     promptDiv.innerHTML = "";
     for(var i = 0; i < currentQuestion.choices.length; i++ ){
-      
-      var answerBtnEl =  document.createElement("button");
-      answerBtnEl.className = "btn";
-      answerBtnEl.textContent = currentQuestion.choices[i];
-      answerBtnEl.onclick = questionClick;
-      promptDiv.appendChild(answerBtnEl);
+      // makes li for every item in the object
+      var answerLi = document.createElement("li");
+      answerLi.className = "list-item";
+      promptDiv.appendChild(answerLi);
+      var answerLiEl = document.querySelector(".list-item")
+      // makes buttond insode the li for every item in array
+      var answerLiEl = document.createElement("button");
+      answerLiEl.className = "btn";
+      answerLiEl.textContent = currentQuestion.choices[i];
+      answerLiEl.onclick = questionClick;
+      answerLi.appendChild(answerLiEl);
     
     }
     
@@ -84,21 +88,26 @@ function getQuestion() {
 
 
 };
-
+// function to control  What happens on a click
 function questionClick() {
-// check if the user guessed wrong
+
 // display new time on page if user guesses wrong
-// move to the next question if user guesses at all
-// logic to check if there are any questions left
+
+
   var coerrectAnswer = questions[currentQuestionIndex].answer;
   var selectedAnswer = this.textContent;
   console.log(selectedAnswer,coerrectAnswer)
+  // check if the user guessed wrong
   if(coerrectAnswer !== selectedAnswer){
     timeLeft -= 10;
   }
+  // move to the next question if user guesses at all
   currentQuestionIndex ++;
+  // logic to check if there are any questions left
   if(currentQuestionIndex === questions.length){
+    
     endQuiz();
+    // gets question if indx length isa not reached
   }else {
     getQuestion();
   }
@@ -108,7 +117,11 @@ function questionClick() {
 function displayMessage(){
     //select paerent
     // make <h1> with text stating that you are out of time 
-}
+    questionZoneEl.style.display = "none";
+    endQuizZoneEl.style.display = "block";
+    var endTitle = document.querySelector("#end-title")
+    endTitle.textContent = "You Ran Out of Time";
+};
 
   function endQuiz (){
     questionZoneEl.style.display = "none";

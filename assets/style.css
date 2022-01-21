@@ -10,7 +10,7 @@ header {
 }
 
 header section p {
-    font-size: 18px;
+    font-size: 25px;
 }
 
 /* style main section */ 
@@ -20,27 +20,48 @@ main {
     align-items: center;
 } 
 
+/* styled tex for style */
+#timer p {
+    font-size: 25px;
+}
+/* shifted the list over */
+#question-choices {
+    padding: 0;
+}
 
+/* styles just the start button */
+#start-button {
+    width: 108px;
+}
+
+/* centered the text */
 .prompt-style {
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    
+    align-items: center;
 }
-
+/* styling the tex in the prompt area */
 .prompt-style p {
-    margin-bottom: 5px;
+     margin-bottom: 5px;
     margin-top: 5px;
-    line-height: .5;
+    line-height: 1; 
     font-size: 18px;
 }
-
+/* styles all the buttons */
 .btn {
     margin-top: 25px;
     color: white;
     background-color: rgb(120, 31, 236);
     font-size: 20px;
+    border-radius: 7px;
 }
 
 .high-score {
     color: violet;
 }
+
+.list-item {
+    list-style: none;
+}
+
