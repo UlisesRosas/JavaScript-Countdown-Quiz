@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,43 +8,50 @@
     <link rel="stylesheet" href="./assets/style.css">
     <title>Document</title>
 </head>
+
 <body>
 
-<header>
-    <!-- high score section --> 
-    <section class="high-score">
-        <p>View High Scores</p>
-    </section>
+    <header>
+        <!-- high score section -->
+        <section class="high-score">
+            <p>View High Scores</p>
+        </section>
 
-    <!-- Timer section -->
-    <section id="timer">
-        <p>Time:</p>
-    </section>
-</header>
-    
-<!-- Quiz Area -->
-<main>
-    <div class="prompt-style">
-        <h1 id="question-title">Coding Quiz Challenge</h1>
-        <p>Try to answer the folowing coding-related questions with the time limit.</p>
-        <p>Keep in mind that incorrect answers will penalize your score/time </p>
-        <p>by ten seconds.</p>
-        <button class="btn" id="start-button" type="button">Start Quiz</button>
-    </div>
-    <!-- question -->
-    <!-- <div>
-        <h1 class="testQuestion">test</h1>
-        <ol class="answer-options">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ol> 
-    </div> -->
-</main>
+        <!-- Timer section -->
+        <section id="timer">
+            <p>Time:</p>
+        </section>
+    </header>
+
+    <!-- Quiz Area -->
+    <main>
+        <div class="prompt-style" id="start-quiz-zone">
+            <h1>Coding Quiz Challenge</h1>
+            <p>Try to answer the folowing coding-related questions with the time limit.</p>
+            <p>Keep in mind that incorrect answers will penalize your score/time </p>
+            <p>by ten seconds.</p>
+            <button class="btn" id="start-button" type="button">Start Quiz</button>
+        </div>
+        <!-- question -->
+        <div id="question-zone">
+            <h2 id="question-title"></h2>
+            <div id="question-choices"></div>
+        </div>
+
+        <div id="end-quiz-zone">
+            <h2>All done!</h2>
+            <p>Your final score is <span id="final-score"></span>.</p>
+            <p>
+              Enter initials: <input type="text" id="initials" max="3" />
+              <button id="submit">Submit</button>
+            </p>
+        </div>
+    </main>
 
 
 
-<script src="./assets/script.js"></script> 
+
+    <script src="./assets/script.js"></script>
 </body>
-</html> 
+
+</html>
